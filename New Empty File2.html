@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HLS Video Player</title>
+
+    <!-- Include HLS.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.0.12/dist/hls.min.js"></script>
+</head>
+<body>
+    <video id="video-player" controls autoplay width="640" height="360"></video>
+
+    <script>
+        var video = document.getElementById('video-player');
+
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource('https://d26g5bnklkwsh4.cloudfront.net/308e6722-3ce6-41b7-a6d7-5010ae8863b1/master.m3u8');
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                video.play();
+            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            // Fallback to native HLS support (Safari)
+            video.src = 'https://d26g5bnklkwsh4.cloudfront.net/308e6722-3ce6-41b7-a6d7-5010ae8863b1/master.m3u8';
+            video.addEventListener('loadedmetadata', function () {
+                video.play();
+            });
+        } else {
+            // Handle unsupported browsers here
+            console.error('HLS not supported');
+        }
+    </script>
+</body>
+</html>
+
