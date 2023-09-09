@@ -5,23 +5,29 @@ body {
     background-color: #fff; /* Set your desired background color */
 }
 
-header {
-    background-color: #fff; /* Set your header background color */
+.sidebar {
+    background-color: #333; /* Set your sidebar background color */
+    color: #000; /* Set your text color to black */
     text-align: center;
-    padding: 20px 0;
-    position: relative;
+    padding: 20px;
+    width: 250px; /* Adjust the sidebar width as needed */
+    position: fixed;
+    height: 100%;
+}
+
+.sidebar img {
+    width: 100px; /* Set your image width as needed */
+    height: 100px; /* Set your image height as needed */
+    margin-bottom: 10px; /* Adjust the margin as needed */
 }
 
 .title {
-    font-size: 36px;
+    font-size: 24px;
     margin: 0;
-    color: #333; /* Set your desired title color */
 }
 
 nav {
-    position: absolute;
-    top: 60px; /* Adjust the distance from the title as needed */
-    left: 20px; /* Adjust the distance from the left edge as needed */
+    margin-top: 20px; /* Adjust the margin as needed */
 }
 
 .menu {
@@ -30,22 +36,17 @@ nav {
 }
 
 .menu li {
-    display: inline;
-    margin-right: 20px; /* Adjust the spacing between menu items as needed */
+    margin-bottom: 10px; /* Adjust the spacing between menu items as needed */
 }
 
 .menu li a {
     text-decoration: none;
-    color: #333; /* Set your desired menu item color */
-    transition: background-color 0.3s;
-}
-
-.menu li a:hover {
-    background-color: #f0f0f0; /* Set your desired hover background color */
-    border-radius: 5px;
+    color: #000; /* Set your menu item text color to black */
+    font-size: 16px; /* Set your desired font size */
 }
 
 .content {
+    margin-left: 250px; /* Adjust the margin from the left to accommodate the sidebar width */
     text-align: center;
     margin-top: 40px; /* Adjust the margin from the top as needed */
 }
@@ -56,4 +57,3 @@ nav {
     border-radius: 5px;
     display: inline-block;
 }
-
